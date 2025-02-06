@@ -38,7 +38,7 @@ jobs:
 
     - uses: haskell-actions/setup@v2
       with:
-        ghc-version: ${{ matrix.compiler.ghc }}
+        ghc-version: ${{ matrix.ghc }}
         cabal-version: "latest"
 
     - uses: cachix/install-nix-action@v27
