@@ -31,7 +31,7 @@ jobs:
         # - "9.0.2"
         # - "9.2.8"
         - "9.4.8"
-        - "9.6.5"
+        - "9.6.6"
         - "9.8.2"
     steps:
     - uses: actions/checkout@v4
@@ -44,10 +44,13 @@ jobs:
     - uses: cachix/install-nix-action@v27
 
     - run: |
+        nix run .#set-cabal-version -- "${{matrix.k8s_release}}" cabal.project
+        cat cabal.project
+
+    - run: |
         cabal update
 
     - run: |
-        nix run .#set-cabal-version -- "${{matrix.k8s_release}}" cabal.project
         cabal build all --enable-tests
 
     - run: |
