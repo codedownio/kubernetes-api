@@ -39,9 +39,12 @@ jobs:
     - uses: haskell-actions/setup@v2
       with:
         ghc-version: ${{ matrix.compiler.ghc }}
-        cabal-version: '3.10.3.0'
+        cabal-version: "latest"
 
     - uses: cachix/install-nix-action@v27
+
+    - run: |
+        cabal update
 
     - run: |
         nix run .#set-cabal-version -- "${{matrix.k8s_release}}" cabal.project
