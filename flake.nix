@@ -59,14 +59,14 @@
           '';
 
           set-stack-version = pkgs.writeShellScriptBin "build-kubernetes-api-client.sh" ''
-            export KUBERNETES_VERSION="$1.${clientMinorVersion}"
+            export KUBERNETES_VERSION="$1"
             STACK_YAML="$2"
 
             ${pkgs.gnused}/bin/sed -i "s/^- kubernetes-api-\(1\.\)[0-9]\+/- kubernetes-api-$KUBERNETES_VERSION/" "$STACK_YAML"
           '';
 
           set-cabal-version = pkgs.writeShellScriptBin "build-kubernetes-client.sh" ''
-            export KUBERNETES_VERSION="$1.${clientMinorVersion}"
+            export KUBERNETES_VERSION="$1"
             CABAL_PROJECT="$2"
 
             ${pkgs.gnused}/bin/sed -i "s/^  kubernetes-api-\(1\.\)[0-9]\+/  kubernetes-api-$KUBERNETES_VERSION/" "$CABAL_PROJECT"
