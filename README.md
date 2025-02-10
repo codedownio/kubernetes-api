@@ -4,7 +4,7 @@
 
 Haskell client for the [kubernetes](http://kubernetes.io/) API.
 
-This was forked from https://github.com/kubernetes-client/haskell/, in order to improve the OpenAPI generation code to generate a version for each Kubernetes release and update each to Hackage.
+This was forked from https://github.com/kubernetes-client/haskell/, in order to improve the OpenAPI generation tooling to generate a version for each Kubernetes release and publish each to Hackage.
 
 The `kubernetes-api-*` folders contain the OpenAPI-generated libraries generated for each Kubernetes version. The `kubernetes-api-client` folder contains the handwritten client library.
 
@@ -16,6 +16,7 @@ When using this, you will probably want to specify the Kubernetes version in you
   build-depends:
     ...
     , kubernetes-api >=130 && <131
+    , kubernetes-client
 ```
 
 # Development
