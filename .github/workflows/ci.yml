@@ -38,16 +38,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - run: |
+        nix run .#set-cabal-version -- "${{matrix.k8s_release}}" cabal.project
+        cat cabal.project
+
     - uses: haskell-actions/setup@v2
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: "latest"
 
     - uses: cachix/install-nix-action@v27
-
-    - run: |
-        nix run .#set-cabal-version -- "${{matrix.k8s_release}}" cabal.project
-        cat cabal.project
 
     - run: |
         cabal update

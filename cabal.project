@@ -1,5 +1,5 @@
 packages:
-  kubernetes-api-1.21
+  kubernetes-api-1.30
   kubernetes-api-client
 
 source-repository-package
