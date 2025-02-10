@@ -36,6 +36,8 @@ jobs:
         - "9.6.6"
         - "9.8.4"
     steps:
+    - uses: cachix/install-nix-action@v27
+
     - uses: actions/checkout@v4
 
     - run: |
@@ -46,8 +48,6 @@ jobs:
       with:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: "latest"
-
-    - uses: cachix/install-nix-action@v27
 
     - run: |
         cabal update
@@ -97,6 +97,8 @@ jobs:
         - ghc: "9.8.4"
           yaml: "stack.yaml"
     steps:
+    - uses: cachix/install-nix-action@v27
+
     - uses: actions/checkout@v4
 
     - uses: haskell-actions/setup@v2
@@ -104,8 +106,6 @@ jobs:
         ghc-version: ${{ matrix.compiler.ghc }}
         enable-stack: true
         stack-version: "latest"
-
-    - uses: cachix/install-nix-action@v27
 
     - uses: actions/cache@v4
       name: Cache ~/.stack
