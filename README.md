@@ -21,6 +21,6 @@ When using this, you will probably want to specify the Kubernetes version in you
 
 # Development
 
-## Update client
-
 To regenerate all `kubernetes-api-*` versions, run `./generate_all.sh`. You need to have [Nix](https://nixos.org/) installed.
+
+It's a good idea to run `./build_all.sh` in order to test that each version builds successfully with Stack.
