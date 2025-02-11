@@ -5,11 +5,13 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           kubernetes-api-client
-version:        0.5.0.0
+version:        0.6.0.0
 synopsis:       Client library for Kubernetes
 description:    Client library for interacting with a Kubernetes cluster.
                 .
-                This package contains hand-written code while kubernetes-api contains code auto-generated from the OpenAPI spec.
+                This package contains hand-written code, while @kubernetes-api@ contains code auto-generated from the OpenAPI spec.
+                .
+                It was forked from the @kubernetes-client@ package.
 category:       Web
 maintainer:     Tom McLaughlin <tom@codedown.io>
 license:        Apache-2.0

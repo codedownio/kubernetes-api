@@ -1,9 +1,12 @@
 name: kubernetes-api-client
-version: 0.5.0.0
+version: 0.6.0.0
 description: |
   Client library for interacting with a Kubernetes cluster.
 
-  This package contains hand-written code while kubernetes-api contains code auto-generated from the OpenAPI spec.
+  This package contains hand-written code, while @kubernetes-api@ contains code auto-generated from the OpenAPI spec.
+
+  It was forked from the @kubernetes-client@ package.
+
 synopsis: Client library for Kubernetes
 maintainer:
 - Tom McLaughlin <tom@codedown.io>
