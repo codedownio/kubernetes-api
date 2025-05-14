@@ -1,4 +1,5 @@
-resolver: lts-23.7
+resolver: nightly-2025-03-26
+compiler: ghc-9.12.1
 
 # This repo contains multiple versions of kubernetes-api, in the
 # kubernetes-api-* directories.

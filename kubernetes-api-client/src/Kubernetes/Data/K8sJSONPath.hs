@@ -1,14 +1,16 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE OverloadedStrings #-}
+
 module Kubernetes.Data.K8sJSONPath where
 
-import Control.Applicative  ((<|>))
+import Control.Applicative ((<|>))
 import Data.Aeson
 import Data.Aeson.Text
 import Data.Bifunctor
 import Data.JSONPath
-import Data.Text       as Text
-import Data.Text.Lazy       (toStrict)
+import Data.Text (Text)
+import qualified Data.Text as Text
+import Data.Text.Lazy (toStrict)
 
 #if !MIN_VERSION_base(4,11,0)
 import Data.Monoid ((<>))
@@ -72,7 +74,7 @@ runPathElement (JSONPath p) v  = encodeResult $ executeJSONPath p v
 
 #if MIN_VERSION_jsonpath(0,3,0)
 encodeResult :: [Value] -> Either String Text
-encodeResult  vals = return $ (intercalate " " $ Prelude.map jsonToText vals)
+encodeResult  vals = return $ (Text.intercalate " " $ Prelude.map jsonToText vals)
 #else
 encodeResult :: ExecutionResult Value -> Either String Text
 encodeResult (ResultValue val) = return $ jsonToText val
