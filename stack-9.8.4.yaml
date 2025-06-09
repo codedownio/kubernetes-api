@@ -1,8 +1,5 @@
-resolver: nightly-2025-05-28
+resolver: lts-23.24
 
-# This repo contains multiple versions of kubernetes-api, in the
-# kubernetes-api-* directories.
-# You should use exactly one to build against.
 packages:
 - kubernetes-api-1.30
 - kubernetes-api-client

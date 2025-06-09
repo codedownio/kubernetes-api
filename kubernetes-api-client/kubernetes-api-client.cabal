@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           kubernetes-api-client
-version:        0.6.0.1
+version:        0.6.1.0
 synopsis:       Client library for Kubernetes
 description:    Client library for interacting with a Kubernetes cluster.
                 .
