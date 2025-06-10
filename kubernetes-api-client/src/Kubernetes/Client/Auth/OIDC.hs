@@ -41,7 +41,7 @@ import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
 import qualified Lens.Micro                        as L
 
-#if !MIN_VERSION_hoauth2(2,8,0)
+#if !MIN_VERSION_hoauth2(2,7,0)
 import qualified Network.OAuth.OAuth2.TokenRequest as OAuth2TokenRequest
 #endif
 
@@ -70,7 +70,7 @@ instance AuthMethod OIDCAuth where
 data OIDCGetTokenException =
 #if MIN_VERSION_hoauth2(2,9,0)
   OIDCOAuthException TokenResponseError
-#elif MIN_VERSION_hoauth2(2,8,0)
+#elif MIN_VERSION_hoauth2(2,7,0)
   OIDCOAuthException TokenRequestError
 #else
   OIDCOAuthException (OAuth2Error OAuth2TokenRequest.Errors)
