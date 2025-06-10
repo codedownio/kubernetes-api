@@ -1,0 +1,14 @@
+resolver: lts-23.24
+
+packages:
+- kubernetes-api-1.30
+- kubernetes-api-client
+
+extra-deps:
+- git: https://github.com/krdlab/haskell-oidc-client
+  commit: 2d19db09bf13f02f49248f7b21703b2c59e06ecc
+
+nix:
+  pure: false
+  packages:
+  - zlib

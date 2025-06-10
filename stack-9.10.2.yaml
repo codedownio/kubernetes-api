@@ -1,5 +1,4 @@
 resolver: nightly-2025-05-28
-compiler: ghc-9.12.2
 
 # This repo contains multiple versions of kubernetes-api, in the
 # kubernetes-api-* directories.
@@ -9,9 +8,8 @@ packages:
 - kubernetes-api-client
 
 extra-deps:
-- git: https://github.com/codedownio/haskell-oidc-client
-  # codedown-jun-2024-ghc98
-  commit: b70757b85751525cba41316ea9af132d9a43cfaf
+- git: https://github.com/krdlab/haskell-oidc-client
+  commit: 2d19db09bf13f02f49248f7b21703b2c59e06ecc
 
 nix:
   pure: false
