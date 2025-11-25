@@ -17,7 +17,7 @@ packages:
     git: https://github.com/krdlab/haskell-oidc-client
 snapshots:
 - completed:
-    sha256: e9b93acfb8aaf8ae4869050506553a963a8adba95748cd60356f9ffe64f03345
-    size: 712232
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2025/5/28.yaml
-  original: nightly-2025-05-28
+    sha256: 32d4130e25c059dbe82764e0029a2d4956d1d9d222f9256b261af308ffd8c4f4
+    size: 710264
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2025/11/25.yaml
+  original: nightly-2025-11-25

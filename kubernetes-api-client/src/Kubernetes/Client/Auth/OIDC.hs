@@ -24,7 +24,6 @@ import Kubernetes.Client.KubeConfig
 import Kubernetes.OpenAPI.Core
 import Network.HTTP.Client
 import Network.HTTP.Client.TLS
-import Network.OAuth.OAuth2                  as OAuth
 import Network.TLS                           as TLS
 import URI.ByteString
 import Web.OIDC.Client.Discovery             as OIDC
@@ -39,6 +38,12 @@ import qualified Data.Map                          as Map
 import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
 import qualified Lens.Micro                        as L
+
+#if MIN_VERSION_hoauth2(2,15,0)
+import Network.OAuth2 as OAuth
+#else
+import Network.OAuth.OAuth2 as OAuth
+#endif
 
 #if !MIN_VERSION_hoauth2(2,7,0)
 import qualified Network.OAuth.OAuth2.TokenRequest as OAuth2TokenRequest
