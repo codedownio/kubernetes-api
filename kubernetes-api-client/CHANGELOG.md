@@ -1,6 +1,10 @@
 
 # Unreleased
 
+## 0.6.1.2
+
+* Support `hoauth2-2.15.0`.
+
 ## 0.6.1.1
 
 * Update a CPP bound to fix compatibility with `hoauth2-2.7.0`.
