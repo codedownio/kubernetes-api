@@ -7,7 +7,7 @@ cd "$SCRIPTDIR"
 # The second is the package version to place in ./kubernetes-<K8S version>/kubernetes-api.cabal.
 
 MAJOR_VERSION=0
-MINOR_VERSION=0
+MINOR_VERSION=1
 
 # nix run .#generate -- 1.20 120.${MAJOR_VERSIONS}.${MINOR_VERSION}
 # nix run .#generate -- 1.21 121.${MAJOR_VERSIONS}.${MINOR_VERSION}
@@ -26,3 +26,6 @@ nix run .#generate -- 1.29 129.${MAJOR_VERSION}.${MINOR_VERSION}
 nix run .#generate -- 1.30 130.${MAJOR_VERSION}.${MINOR_VERSION}
 nix run .#generate -- 1.31 131.${MAJOR_VERSION}.${MINOR_VERSION}
 nix run .#generate -- 1.32 132.${MAJOR_VERSION}.${MINOR_VERSION}
+nix run .#generate -- 1.33 133.${MAJOR_VERSION}.${MINOR_VERSION}
+nix run .#generate -- 1.34 134.${MAJOR_VERSION}.${MINOR_VERSION}
+nix run .#generate -- 1.35 135.${MAJOR_VERSION}.${MINOR_VERSION}

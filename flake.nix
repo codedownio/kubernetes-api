@@ -39,7 +39,7 @@
             ${pkgs.gnused}/bin/sed -i "s/^version:\s*\(.*\)/version:        $PACKAGE_VERSION/" "$out/kubernetes-api.cabal"
 
             # Fix a bound
-            ${pkgs.gnused}/bin/sed -i 's/\(http-api-data >= 0.3.4 &&\) <0.6/\1 <0.7/' "$out/kubernetes-api.cabal"
+            ${pkgs.gnused}/bin/sed -i 's/\(http-api-data >= 0.3.4 &&\) <0.6/\1 <0.8/' "$out/kubernetes-api.cabal"
 
             # Delete openapi.yaml from the extra-source-files
             ${pkgs.gnused}/bin/sed -i '/^\s*openapi\.yaml$/d' "$out/kubernetes-api.cabal"

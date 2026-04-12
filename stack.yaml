@@ -4,7 +4,7 @@ resolver: nightly-2025-11-25
 # kubernetes-api-* directories.
 # You should use exactly one to build against.
 packages:
-- kubernetes-api-1.30
+- kubernetes-api-1.35
 - kubernetes-api-client
 
 extra-deps:

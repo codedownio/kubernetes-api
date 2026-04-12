@@ -1,5 +1,5 @@
 name:           kubernetes-api
-version:        131.0.0
+version:        131.0.1
 synopsis:       Auto-generated kubernetes-api API Client
 description:    .
                 Client library for calling the Kubernetes API based on http-client.
@@ -44,7 +44,7 @@ library
     , containers >=0.5.0.0 && <0.8
     , deepseq >= 1.4 && <1.6
     , exceptions >= 0.4
-    , http-api-data >= 0.3.4 && <0.7
+    , http-api-data >= 0.3.4 && <0.8
     , http-client >=0.5 && <0.8
     , http-client-tls
     , http-media >= 0.4 && < 0.9
