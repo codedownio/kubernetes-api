@@ -41,6 +41,9 @@
             # Fix a bound
             ${pkgs.gnused}/bin/sed -i 's/\(http-api-data >= 0.3.4 &&\) <0.6/\1 <0.8/' "$out/kubernetes-api.cabal"
 
+            # containers 0.8 ships with GHC 9.14
+            ${pkgs.gnused}/bin/sed -i 's/\(containers >=0.5.0.0 &&\) <0.8/\1 <0.9/' "$out/kubernetes-api.cabal"
+
             # Delete openapi.yaml from the extra-source-files
             ${pkgs.gnused}/bin/sed -i '/^\s*openapi\.yaml$/d' "$out/kubernetes-api.cabal"
 
