@@ -4,7 +4,7 @@
     url = "github:kubernetes-client/gen";
     flake = false;
   };
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=release-24.05";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=release-26.05";
 
   outputs = { self, flake-utils, gen, nixpkgs }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system:
@@ -22,6 +22,16 @@
         };
 
       in {
+        devShells.default = pkgs.mkShell {
+          buildInputs = [
+            pkgs.haskell.compiler.ghc9124
+            pkgs.cabal-install
+            pkgs.stack
+            pkgs.pkg-config
+            pkgs.zlib
+          ];
+        };
+
         packages = {
           generate = pkgs.writeShellScriptBin "generate-kubernetes-api.sh" ''
             export KUBERNETES_VERSION="$1"
@@ -40,6 +50,9 @@
 
             # Fix a bound
             ${pkgs.gnused}/bin/sed -i 's/\(http-api-data >= 0.3.4 &&\) <0.6/\1 <0.8/' "$out/kubernetes-api.cabal"
+
+            # containers 0.8 ships with GHC 9.14
+            ${pkgs.gnused}/bin/sed -i 's/\(containers >=0.5.0.0 &&\) <0.8/\1 <0.9/' "$out/kubernetes-api.cabal"
 
             # Delete openapi.yaml from the extra-source-files
             ${pkgs.gnused}/bin/sed -i '/^\s*openapi\.yaml$/d' "$out/kubernetes-api.cabal"

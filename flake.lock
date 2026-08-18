@@ -21,11 +21,11 @@
     "gen": {
       "flake": false,
       "locked": {
-        "lastModified": 1738693139,
-        "narHash": "sha256-iVSka7aVU72gb9O/r7NVptD6NkF471CXR1MycFyZzlU=",
+        "lastModified": 1785459944,
+        "narHash": "sha256-lpukR3c/4fBtyL64fPUtZk8P1dmXiBA9kpPPXgNKQJs=",
         "owner": "kubernetes-client",
         "repo": "gen",
-        "rev": "7f27576537138547f1b45ff9f0d1000df2721d47",
+        "rev": "5cd69a394a8dfebb300f3a07fb6ba49746edee5b",
         "type": "github"
       },
       "original": {
@@ -36,16 +36,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718321993,
-        "narHash": "sha256-dayaR6a+NrClBd1rXKcTU9/g6qo2Ms+PcvAIN4bcb6w=",
+        "lastModified": 1787092812,
+        "narHash": "sha256-Jfk3QW5IfwJB8fbC0Ne8Pyd2Yu37jALVellaK2RB5F0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1db848eeaefe7afa0d2c7192e8aba962ec34d3f0",
+        "rev": "fd5a4120165ed83ab20b069e1d027dbbc0bfc7ef",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-24.05",
+        "ref": "release-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
