@@ -14,3 +14,4 @@ pushd kubernetes-api-1.32 && stack upload . && popd
 pushd kubernetes-api-1.33 && stack upload . && popd
 pushd kubernetes-api-1.34 && stack upload . && popd
 pushd kubernetes-api-1.35 && stack upload . && popd
+pushd kubernetes-api-1.36 && stack upload . && popd

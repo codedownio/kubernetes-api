@@ -7297,6 +7297,43 @@ mkV1GroupVersionForDiscovery v1GroupVersionForDiscoveryGroupVersion v1GroupVersi
   , v1GroupVersionForDiscoveryVersion
   }
 
+-- ** V1GroupVersionKind
+-- | V1GroupVersionKind
+-- GroupVersionKind unambiguously identifies a kind.
+data V1GroupVersionKind = V1GroupVersionKind
+  { v1GroupVersionKindGroup :: !(Maybe Text) -- ^ "group"
+  , v1GroupVersionKindVersion :: !(Maybe Text) -- ^ "version"
+  , v1GroupVersionKindKind :: !(Maybe Text) -- ^ "kind"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V1GroupVersionKind
+instance A.FromJSON V1GroupVersionKind where
+  parseJSON = A.withObject "V1GroupVersionKind" $ \o ->
+    V1GroupVersionKind
+      <$> (o .:? "group")
+      <*> (o .:? "version")
+      <*> (o .:? "kind")
+
+-- | ToJSON V1GroupVersionKind
+instance A.ToJSON V1GroupVersionKind where
+  toJSON V1GroupVersionKind {..} =
+   _omitNulls
+      [ "group" .= v1GroupVersionKindGroup
+      , "version" .= v1GroupVersionKindVersion
+      , "kind" .= v1GroupVersionKindKind
+      ]
+
+
+-- | Construct a value of type 'V1GroupVersionKind' (by applying it's required fields, if any)
+mkV1GroupVersionKind
+  :: V1GroupVersionKind
+mkV1GroupVersionKind =
+  V1GroupVersionKind
+  { v1GroupVersionKindGroup = Nothing
+  , v1GroupVersionKindVersion = Nothing
+  , v1GroupVersionKindKind = Nothing
+  }
+
 -- ** V1HTTPGetAction
 -- | V1HTTPGetAction
 -- HTTPGetAction describes an action based on HTTP Get requests.
@@ -25608,6 +25645,231 @@ mkV1beta3UserSubject v1beta3UserSubjectName =
   { v1beta3UserSubjectName
   }
 
+-- ** V2APIGroupDiscovery
+-- | V2APIGroupDiscovery
+-- APIGroupDiscovery holds information about which resources are being served for all version of the API Group. It contains a list of APIVersionDiscovery that holds a list of APIResourceDiscovery types served for a version. Versions are in descending order of preference, with the first version being the preferred entry.
+data V2APIGroupDiscovery = V2APIGroupDiscovery
+  { v2APIGroupDiscoveryApiVersion :: !(Maybe Text) -- ^ "apiVersion"
+  , v2APIGroupDiscoveryKind :: !(Maybe Text) -- ^ "kind"
+  , v2APIGroupDiscoveryMetadata :: !(Maybe V1ObjectMeta) -- ^ "metadata"
+  , v2APIGroupDiscoveryVersions :: !(Maybe [V2APIVersionDiscovery]) -- ^ "versions"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2APIGroupDiscovery
+instance A.FromJSON V2APIGroupDiscovery where
+  parseJSON = A.withObject "V2APIGroupDiscovery" $ \o ->
+    V2APIGroupDiscovery
+      <$> (o .:? "apiVersion")
+      <*> (o .:? "kind")
+      <*> (o .:? "metadata")
+      <*> (o .:? "versions")
+
+-- | ToJSON V2APIGroupDiscovery
+instance A.ToJSON V2APIGroupDiscovery where
+  toJSON V2APIGroupDiscovery {..} =
+   _omitNulls
+      [ "apiVersion" .= v2APIGroupDiscoveryApiVersion
+      , "kind" .= v2APIGroupDiscoveryKind
+      , "metadata" .= v2APIGroupDiscoveryMetadata
+      , "versions" .= v2APIGroupDiscoveryVersions
+      ]
+
+
+-- | Construct a value of type 'V2APIGroupDiscovery' (by applying it's required fields, if any)
+mkV2APIGroupDiscovery
+  :: V2APIGroupDiscovery
+mkV2APIGroupDiscovery =
+  V2APIGroupDiscovery
+  { v2APIGroupDiscoveryApiVersion = Nothing
+  , v2APIGroupDiscoveryKind = Nothing
+  , v2APIGroupDiscoveryMetadata = Nothing
+  , v2APIGroupDiscoveryVersions = Nothing
+  }
+
+-- ** V2APIGroupDiscoveryList
+-- | V2APIGroupDiscoveryList
+-- APIGroupDiscoveryList is a resource containing a list of APIGroupDiscovery. This is one of the types able to be returned from the /api and /apis endpoint and contains an aggregated list of API resources (built-ins, Custom Resource Definitions, resources from aggregated servers) that a cluster supports.
+data V2APIGroupDiscoveryList = V2APIGroupDiscoveryList
+  { v2APIGroupDiscoveryListApiVersion :: !(Maybe Text) -- ^ "apiVersion"
+  , v2APIGroupDiscoveryListKind :: !(Maybe Text) -- ^ "kind"
+  , v2APIGroupDiscoveryListMetadata :: !(Maybe V1ListMeta) -- ^ "metadata"
+  , v2APIGroupDiscoveryListItems :: !([V2APIGroupDiscovery]) -- ^ /Required/ "items"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2APIGroupDiscoveryList
+instance A.FromJSON V2APIGroupDiscoveryList where
+  parseJSON = A.withObject "V2APIGroupDiscoveryList" $ \o ->
+    V2APIGroupDiscoveryList
+      <$> (o .:? "apiVersion")
+      <*> (o .:? "kind")
+      <*> (o .:? "metadata")
+      <*> (o .:  "items")
+
+-- | ToJSON V2APIGroupDiscoveryList
+instance A.ToJSON V2APIGroupDiscoveryList where
+  toJSON V2APIGroupDiscoveryList {..} =
+   _omitNulls
+      [ "apiVersion" .= v2APIGroupDiscoveryListApiVersion
+      , "kind" .= v2APIGroupDiscoveryListKind
+      , "metadata" .= v2APIGroupDiscoveryListMetadata
+      , "items" .= v2APIGroupDiscoveryListItems
+      ]
+
+
+-- | Construct a value of type 'V2APIGroupDiscoveryList' (by applying it's required fields, if any)
+mkV2APIGroupDiscoveryList
+  :: [V2APIGroupDiscovery] -- ^ 'v2APIGroupDiscoveryListItems' 
+  -> V2APIGroupDiscoveryList
+mkV2APIGroupDiscoveryList v2APIGroupDiscoveryListItems =
+  V2APIGroupDiscoveryList
+  { v2APIGroupDiscoveryListApiVersion = Nothing
+  , v2APIGroupDiscoveryListKind = Nothing
+  , v2APIGroupDiscoveryListMetadata = Nothing
+  , v2APIGroupDiscoveryListItems
+  }
+
+-- ** V2APIResourceDiscovery
+-- | V2APIResourceDiscovery
+-- APIResourceDiscovery provides information about an API resource for discovery.
+data V2APIResourceDiscovery = V2APIResourceDiscovery
+  { v2APIResourceDiscoveryResource :: !(Text) -- ^ /Required/ "resource" - resource is the plural name of the resource.
+  , v2APIResourceDiscoveryResponseKind :: !(Maybe V1GroupVersionKind) -- ^ "responseKind"
+  , v2APIResourceDiscoveryScope :: !(Text) -- ^ /Required/ "scope" - scope indicates the scope of a resource, either Cluster or Namespaced
+  , v2APIResourceDiscoverySingularResource :: !(Text) -- ^ /Required/ "singularResource" - singularResource is the singular name of the resource.
+  , v2APIResourceDiscoveryVerbs :: !([Text]) -- ^ /Required/ "verbs" - verbs is a list of supported API operation types
+  , v2APIResourceDiscoveryShortNames :: !(Maybe [Text]) -- ^ "shortNames" - shortNames is a list of suggested short names of the resource.
+  , v2APIResourceDiscoveryCategories :: !(Maybe [Text]) -- ^ "categories" - categories is a list of the grouped resources this resource belongs to.
+  , v2APIResourceDiscoverySubresources :: !(Maybe [V2APISubresourceDiscovery]) -- ^ "subresources"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2APIResourceDiscovery
+instance A.FromJSON V2APIResourceDiscovery where
+  parseJSON = A.withObject "V2APIResourceDiscovery" $ \o ->
+    V2APIResourceDiscovery
+      <$> (o .:  "resource")
+      <*> (o .:? "responseKind")
+      <*> (o .:  "scope")
+      <*> (o .:  "singularResource")
+      <*> (o .:  "verbs")
+      <*> (o .:? "shortNames")
+      <*> (o .:? "categories")
+      <*> (o .:? "subresources")
+
+-- | ToJSON V2APIResourceDiscovery
+instance A.ToJSON V2APIResourceDiscovery where
+  toJSON V2APIResourceDiscovery {..} =
+   _omitNulls
+      [ "resource" .= v2APIResourceDiscoveryResource
+      , "responseKind" .= v2APIResourceDiscoveryResponseKind
+      , "scope" .= v2APIResourceDiscoveryScope
+      , "singularResource" .= v2APIResourceDiscoverySingularResource
+      , "verbs" .= v2APIResourceDiscoveryVerbs
+      , "shortNames" .= v2APIResourceDiscoveryShortNames
+      , "categories" .= v2APIResourceDiscoveryCategories
+      , "subresources" .= v2APIResourceDiscoverySubresources
+      ]
+
+
+-- | Construct a value of type 'V2APIResourceDiscovery' (by applying it's required fields, if any)
+mkV2APIResourceDiscovery
+  :: Text -- ^ 'v2APIResourceDiscoveryResource': resource is the plural name of the resource.
+  -> Text -- ^ 'v2APIResourceDiscoveryScope': scope indicates the scope of a resource, either Cluster or Namespaced
+  -> Text -- ^ 'v2APIResourceDiscoverySingularResource': singularResource is the singular name of the resource.
+  -> [Text] -- ^ 'v2APIResourceDiscoveryVerbs': verbs is a list of supported API operation types
+  -> V2APIResourceDiscovery
+mkV2APIResourceDiscovery v2APIResourceDiscoveryResource v2APIResourceDiscoveryScope v2APIResourceDiscoverySingularResource v2APIResourceDiscoveryVerbs =
+  V2APIResourceDiscovery
+  { v2APIResourceDiscoveryResource
+  , v2APIResourceDiscoveryResponseKind = Nothing
+  , v2APIResourceDiscoveryScope
+  , v2APIResourceDiscoverySingularResource
+  , v2APIResourceDiscoveryVerbs
+  , v2APIResourceDiscoveryShortNames = Nothing
+  , v2APIResourceDiscoveryCategories = Nothing
+  , v2APIResourceDiscoverySubresources = Nothing
+  }
+
+-- ** V2APISubresourceDiscovery
+-- | V2APISubresourceDiscovery
+-- APISubresourceDiscovery provides information about an API subresource for discovery.
+data V2APISubresourceDiscovery = V2APISubresourceDiscovery
+  { v2APISubresourceDiscoverySubresource :: !(Text) -- ^ /Required/ "subresource" - subresource is the name of the subresource.
+  , v2APISubresourceDiscoveryResponseKind :: !(Maybe V1GroupVersionKind) -- ^ "responseKind"
+  , v2APISubresourceDiscoveryAcceptedTypes :: !(Maybe [V1GroupVersionKind]) -- ^ "acceptedTypes"
+  , v2APISubresourceDiscoveryVerbs :: !([Text]) -- ^ /Required/ "verbs" - verbs is a list of supported API operation types
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2APISubresourceDiscovery
+instance A.FromJSON V2APISubresourceDiscovery where
+  parseJSON = A.withObject "V2APISubresourceDiscovery" $ \o ->
+    V2APISubresourceDiscovery
+      <$> (o .:  "subresource")
+      <*> (o .:? "responseKind")
+      <*> (o .:? "acceptedTypes")
+      <*> (o .:  "verbs")
+
+-- | ToJSON V2APISubresourceDiscovery
+instance A.ToJSON V2APISubresourceDiscovery where
+  toJSON V2APISubresourceDiscovery {..} =
+   _omitNulls
+      [ "subresource" .= v2APISubresourceDiscoverySubresource
+      , "responseKind" .= v2APISubresourceDiscoveryResponseKind
+      , "acceptedTypes" .= v2APISubresourceDiscoveryAcceptedTypes
+      , "verbs" .= v2APISubresourceDiscoveryVerbs
+      ]
+
+
+-- | Construct a value of type 'V2APISubresourceDiscovery' (by applying it's required fields, if any)
+mkV2APISubresourceDiscovery
+  :: Text -- ^ 'v2APISubresourceDiscoverySubresource': subresource is the name of the subresource.
+  -> [Text] -- ^ 'v2APISubresourceDiscoveryVerbs': verbs is a list of supported API operation types
+  -> V2APISubresourceDiscovery
+mkV2APISubresourceDiscovery v2APISubresourceDiscoverySubresource v2APISubresourceDiscoveryVerbs =
+  V2APISubresourceDiscovery
+  { v2APISubresourceDiscoverySubresource
+  , v2APISubresourceDiscoveryResponseKind = Nothing
+  , v2APISubresourceDiscoveryAcceptedTypes = Nothing
+  , v2APISubresourceDiscoveryVerbs
+  }
+
+-- ** V2APIVersionDiscovery
+-- | V2APIVersionDiscovery
+-- APIVersionDiscovery holds a list of APIResourceDiscovery types that are served for a particular version within an API Group.
+data V2APIVersionDiscovery = V2APIVersionDiscovery
+  { v2APIVersionDiscoveryVersion :: !(Text) -- ^ /Required/ "version" - version is the name of the version within a group version.
+  , v2APIVersionDiscoveryResources :: !(Maybe [V2APIResourceDiscovery]) -- ^ "resources"
+  , v2APIVersionDiscoveryFreshness :: !(Maybe Text) -- ^ "freshness" - freshness marks whether a group version&#39;s discovery document is up to date.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2APIVersionDiscovery
+instance A.FromJSON V2APIVersionDiscovery where
+  parseJSON = A.withObject "V2APIVersionDiscovery" $ \o ->
+    V2APIVersionDiscovery
+      <$> (o .:  "version")
+      <*> (o .:? "resources")
+      <*> (o .:? "freshness")
+
+-- | ToJSON V2APIVersionDiscovery
+instance A.ToJSON V2APIVersionDiscovery where
+  toJSON V2APIVersionDiscovery {..} =
+   _omitNulls
+      [ "version" .= v2APIVersionDiscoveryVersion
+      , "resources" .= v2APIVersionDiscoveryResources
+      , "freshness" .= v2APIVersionDiscoveryFreshness
+      ]
+
+
+-- | Construct a value of type 'V2APIVersionDiscovery' (by applying it's required fields, if any)
+mkV2APIVersionDiscovery
+  :: Text -- ^ 'v2APIVersionDiscoveryVersion': version is the name of the version within a group version.
+  -> V2APIVersionDiscovery
+mkV2APIVersionDiscovery v2APIVersionDiscoveryVersion =
+  V2APIVersionDiscovery
+  { v2APIVersionDiscoveryVersion
+  , v2APIVersionDiscoveryResources = Nothing
+  , v2APIVersionDiscoveryFreshness = Nothing
+  }
+
 -- ** V2ContainerResourceMetricSource
 -- | V2ContainerResourceMetricSource
 -- ContainerResourceMetricSource indicates how to scale on a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  The values will be averaged together before being compared to the target.  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.  Only one \"target\" type should be set.
@@ -26569,6 +26831,231 @@ mkV2ResourceMetricStatus v2ResourceMetricStatusCurrent v2ResourceMetricStatusNam
   V2ResourceMetricStatus
   { v2ResourceMetricStatusCurrent
   , v2ResourceMetricStatusName
+  }
+
+-- ** V2beta1APIGroupDiscovery
+-- | V2beta1APIGroupDiscovery
+-- APIGroupDiscovery holds information about which resources are being served for all version of the API Group. It contains a list of APIVersionDiscovery that holds a list of APIResourceDiscovery types served for a version. Versions are in descending order of preference, with the first version being the preferred entry.
+data V2beta1APIGroupDiscovery = V2beta1APIGroupDiscovery
+  { v2beta1APIGroupDiscoveryApiVersion :: !(Maybe Text) -- ^ "apiVersion"
+  , v2beta1APIGroupDiscoveryKind :: !(Maybe Text) -- ^ "kind"
+  , v2beta1APIGroupDiscoveryMetadata :: !(Maybe V1ObjectMeta) -- ^ "metadata"
+  , v2beta1APIGroupDiscoveryVersions :: !(Maybe [V2beta1APIVersionDiscovery]) -- ^ "versions"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2beta1APIGroupDiscovery
+instance A.FromJSON V2beta1APIGroupDiscovery where
+  parseJSON = A.withObject "V2beta1APIGroupDiscovery" $ \o ->
+    V2beta1APIGroupDiscovery
+      <$> (o .:? "apiVersion")
+      <*> (o .:? "kind")
+      <*> (o .:? "metadata")
+      <*> (o .:? "versions")
+
+-- | ToJSON V2beta1APIGroupDiscovery
+instance A.ToJSON V2beta1APIGroupDiscovery where
+  toJSON V2beta1APIGroupDiscovery {..} =
+   _omitNulls
+      [ "apiVersion" .= v2beta1APIGroupDiscoveryApiVersion
+      , "kind" .= v2beta1APIGroupDiscoveryKind
+      , "metadata" .= v2beta1APIGroupDiscoveryMetadata
+      , "versions" .= v2beta1APIGroupDiscoveryVersions
+      ]
+
+
+-- | Construct a value of type 'V2beta1APIGroupDiscovery' (by applying it's required fields, if any)
+mkV2beta1APIGroupDiscovery
+  :: V2beta1APIGroupDiscovery
+mkV2beta1APIGroupDiscovery =
+  V2beta1APIGroupDiscovery
+  { v2beta1APIGroupDiscoveryApiVersion = Nothing
+  , v2beta1APIGroupDiscoveryKind = Nothing
+  , v2beta1APIGroupDiscoveryMetadata = Nothing
+  , v2beta1APIGroupDiscoveryVersions = Nothing
+  }
+
+-- ** V2beta1APIGroupDiscoveryList
+-- | V2beta1APIGroupDiscoveryList
+-- APIGroupDiscoveryList is a resource containing a list of APIGroupDiscovery. This is one of the types able to be returned from the /api and /apis endpoint and contains an aggregated list of API resources (built-ins, Custom Resource Definitions, resources from aggregated servers) that a cluster supports.
+data V2beta1APIGroupDiscoveryList = V2beta1APIGroupDiscoveryList
+  { v2beta1APIGroupDiscoveryListApiVersion :: !(Maybe Text) -- ^ "apiVersion"
+  , v2beta1APIGroupDiscoveryListKind :: !(Maybe Text) -- ^ "kind"
+  , v2beta1APIGroupDiscoveryListMetadata :: !(Maybe V1ListMeta) -- ^ "metadata"
+  , v2beta1APIGroupDiscoveryListItems :: !([V2beta1APIGroupDiscovery]) -- ^ /Required/ "items"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2beta1APIGroupDiscoveryList
+instance A.FromJSON V2beta1APIGroupDiscoveryList where
+  parseJSON = A.withObject "V2beta1APIGroupDiscoveryList" $ \o ->
+    V2beta1APIGroupDiscoveryList
+      <$> (o .:? "apiVersion")
+      <*> (o .:? "kind")
+      <*> (o .:? "metadata")
+      <*> (o .:  "items")
+
+-- | ToJSON V2beta1APIGroupDiscoveryList
+instance A.ToJSON V2beta1APIGroupDiscoveryList where
+  toJSON V2beta1APIGroupDiscoveryList {..} =
+   _omitNulls
+      [ "apiVersion" .= v2beta1APIGroupDiscoveryListApiVersion
+      , "kind" .= v2beta1APIGroupDiscoveryListKind
+      , "metadata" .= v2beta1APIGroupDiscoveryListMetadata
+      , "items" .= v2beta1APIGroupDiscoveryListItems
+      ]
+
+
+-- | Construct a value of type 'V2beta1APIGroupDiscoveryList' (by applying it's required fields, if any)
+mkV2beta1APIGroupDiscoveryList
+  :: [V2beta1APIGroupDiscovery] -- ^ 'v2beta1APIGroupDiscoveryListItems' 
+  -> V2beta1APIGroupDiscoveryList
+mkV2beta1APIGroupDiscoveryList v2beta1APIGroupDiscoveryListItems =
+  V2beta1APIGroupDiscoveryList
+  { v2beta1APIGroupDiscoveryListApiVersion = Nothing
+  , v2beta1APIGroupDiscoveryListKind = Nothing
+  , v2beta1APIGroupDiscoveryListMetadata = Nothing
+  , v2beta1APIGroupDiscoveryListItems
+  }
+
+-- ** V2beta1APIResourceDiscovery
+-- | V2beta1APIResourceDiscovery
+-- APIResourceDiscovery provides information about an API resource for discovery.
+data V2beta1APIResourceDiscovery = V2beta1APIResourceDiscovery
+  { v2beta1APIResourceDiscoveryResource :: !(Text) -- ^ /Required/ "resource" - resource is the plural name of the resource.
+  , v2beta1APIResourceDiscoveryResponseKind :: !(Maybe V1GroupVersionKind) -- ^ "responseKind"
+  , v2beta1APIResourceDiscoveryScope :: !(Text) -- ^ /Required/ "scope" - scope indicates the scope of a resource, either Cluster or Namespaced
+  , v2beta1APIResourceDiscoverySingularResource :: !(Text) -- ^ /Required/ "singularResource" - singularResource is the singular name of the resource.
+  , v2beta1APIResourceDiscoveryVerbs :: !([Text]) -- ^ /Required/ "verbs" - verbs is a list of supported API operation types
+  , v2beta1APIResourceDiscoveryShortNames :: !(Maybe [Text]) -- ^ "shortNames" - shortNames is a list of suggested short names of the resource.
+  , v2beta1APIResourceDiscoveryCategories :: !(Maybe [Text]) -- ^ "categories" - categories is a list of the grouped resources this resource belongs to.
+  , v2beta1APIResourceDiscoverySubresources :: !(Maybe [V2beta1APISubresourceDiscovery]) -- ^ "subresources"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2beta1APIResourceDiscovery
+instance A.FromJSON V2beta1APIResourceDiscovery where
+  parseJSON = A.withObject "V2beta1APIResourceDiscovery" $ \o ->
+    V2beta1APIResourceDiscovery
+      <$> (o .:  "resource")
+      <*> (o .:? "responseKind")
+      <*> (o .:  "scope")
+      <*> (o .:  "singularResource")
+      <*> (o .:  "verbs")
+      <*> (o .:? "shortNames")
+      <*> (o .:? "categories")
+      <*> (o .:? "subresources")
+
+-- | ToJSON V2beta1APIResourceDiscovery
+instance A.ToJSON V2beta1APIResourceDiscovery where
+  toJSON V2beta1APIResourceDiscovery {..} =
+   _omitNulls
+      [ "resource" .= v2beta1APIResourceDiscoveryResource
+      , "responseKind" .= v2beta1APIResourceDiscoveryResponseKind
+      , "scope" .= v2beta1APIResourceDiscoveryScope
+      , "singularResource" .= v2beta1APIResourceDiscoverySingularResource
+      , "verbs" .= v2beta1APIResourceDiscoveryVerbs
+      , "shortNames" .= v2beta1APIResourceDiscoveryShortNames
+      , "categories" .= v2beta1APIResourceDiscoveryCategories
+      , "subresources" .= v2beta1APIResourceDiscoverySubresources
+      ]
+
+
+-- | Construct a value of type 'V2beta1APIResourceDiscovery' (by applying it's required fields, if any)
+mkV2beta1APIResourceDiscovery
+  :: Text -- ^ 'v2beta1APIResourceDiscoveryResource': resource is the plural name of the resource.
+  -> Text -- ^ 'v2beta1APIResourceDiscoveryScope': scope indicates the scope of a resource, either Cluster or Namespaced
+  -> Text -- ^ 'v2beta1APIResourceDiscoverySingularResource': singularResource is the singular name of the resource.
+  -> [Text] -- ^ 'v2beta1APIResourceDiscoveryVerbs': verbs is a list of supported API operation types
+  -> V2beta1APIResourceDiscovery
+mkV2beta1APIResourceDiscovery v2beta1APIResourceDiscoveryResource v2beta1APIResourceDiscoveryScope v2beta1APIResourceDiscoverySingularResource v2beta1APIResourceDiscoveryVerbs =
+  V2beta1APIResourceDiscovery
+  { v2beta1APIResourceDiscoveryResource
+  , v2beta1APIResourceDiscoveryResponseKind = Nothing
+  , v2beta1APIResourceDiscoveryScope
+  , v2beta1APIResourceDiscoverySingularResource
+  , v2beta1APIResourceDiscoveryVerbs
+  , v2beta1APIResourceDiscoveryShortNames = Nothing
+  , v2beta1APIResourceDiscoveryCategories = Nothing
+  , v2beta1APIResourceDiscoverySubresources = Nothing
+  }
+
+-- ** V2beta1APISubresourceDiscovery
+-- | V2beta1APISubresourceDiscovery
+-- APISubresourceDiscovery provides information about an API subresource for discovery.
+data V2beta1APISubresourceDiscovery = V2beta1APISubresourceDiscovery
+  { v2beta1APISubresourceDiscoverySubresource :: !(Text) -- ^ /Required/ "subresource" - subresource is the name of the subresource.
+  , v2beta1APISubresourceDiscoveryResponseKind :: !(Maybe V1GroupVersionKind) -- ^ "responseKind"
+  , v2beta1APISubresourceDiscoveryVerbs :: !([Text]) -- ^ /Required/ "verbs" - verbs is a list of supported API operation types
+  , v2beta1APISubresourceDiscoveryAcceptedTypes :: !(Maybe [V1GroupVersionKind]) -- ^ "acceptedTypes"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2beta1APISubresourceDiscovery
+instance A.FromJSON V2beta1APISubresourceDiscovery where
+  parseJSON = A.withObject "V2beta1APISubresourceDiscovery" $ \o ->
+    V2beta1APISubresourceDiscovery
+      <$> (o .:  "subresource")
+      <*> (o .:? "responseKind")
+      <*> (o .:  "verbs")
+      <*> (o .:? "acceptedTypes")
+
+-- | ToJSON V2beta1APISubresourceDiscovery
+instance A.ToJSON V2beta1APISubresourceDiscovery where
+  toJSON V2beta1APISubresourceDiscovery {..} =
+   _omitNulls
+      [ "subresource" .= v2beta1APISubresourceDiscoverySubresource
+      , "responseKind" .= v2beta1APISubresourceDiscoveryResponseKind
+      , "verbs" .= v2beta1APISubresourceDiscoveryVerbs
+      , "acceptedTypes" .= v2beta1APISubresourceDiscoveryAcceptedTypes
+      ]
+
+
+-- | Construct a value of type 'V2beta1APISubresourceDiscovery' (by applying it's required fields, if any)
+mkV2beta1APISubresourceDiscovery
+  :: Text -- ^ 'v2beta1APISubresourceDiscoverySubresource': subresource is the name of the subresource.
+  -> [Text] -- ^ 'v2beta1APISubresourceDiscoveryVerbs': verbs is a list of supported API operation types
+  -> V2beta1APISubresourceDiscovery
+mkV2beta1APISubresourceDiscovery v2beta1APISubresourceDiscoverySubresource v2beta1APISubresourceDiscoveryVerbs =
+  V2beta1APISubresourceDiscovery
+  { v2beta1APISubresourceDiscoverySubresource
+  , v2beta1APISubresourceDiscoveryResponseKind = Nothing
+  , v2beta1APISubresourceDiscoveryVerbs
+  , v2beta1APISubresourceDiscoveryAcceptedTypes = Nothing
+  }
+
+-- ** V2beta1APIVersionDiscovery
+-- | V2beta1APIVersionDiscovery
+-- APIVersionDiscovery holds a list of APIResourceDiscovery types that are served for a particular version within an API Group.
+data V2beta1APIVersionDiscovery = V2beta1APIVersionDiscovery
+  { v2beta1APIVersionDiscoveryVersion :: !(Text) -- ^ /Required/ "version" - version is the name of the version within a group version.
+  , v2beta1APIVersionDiscoveryResources :: !(Maybe [V2beta1APIResourceDiscovery]) -- ^ "resources"
+  , v2beta1APIVersionDiscoveryFreshness :: !(Maybe Text) -- ^ "freshness" - freshness marks whether a group version&#39;s discovery document is up to date.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON V2beta1APIVersionDiscovery
+instance A.FromJSON V2beta1APIVersionDiscovery where
+  parseJSON = A.withObject "V2beta1APIVersionDiscovery" $ \o ->
+    V2beta1APIVersionDiscovery
+      <$> (o .:  "version")
+      <*> (o .:? "resources")
+      <*> (o .:? "freshness")
+
+-- | ToJSON V2beta1APIVersionDiscovery
+instance A.ToJSON V2beta1APIVersionDiscovery where
+  toJSON V2beta1APIVersionDiscovery {..} =
+   _omitNulls
+      [ "version" .= v2beta1APIVersionDiscoveryVersion
+      , "resources" .= v2beta1APIVersionDiscoveryResources
+      , "freshness" .= v2beta1APIVersionDiscoveryFreshness
+      ]
+
+
+-- | Construct a value of type 'V2beta1APIVersionDiscovery' (by applying it's required fields, if any)
+mkV2beta1APIVersionDiscovery
+  :: Text -- ^ 'v2beta1APIVersionDiscoveryVersion': version is the name of the version within a group version.
+  -> V2beta1APIVersionDiscovery
+mkV2beta1APIVersionDiscovery v2beta1APIVersionDiscoveryVersion =
+  V2beta1APIVersionDiscovery
+  { v2beta1APIVersionDiscoveryVersion
+  , v2beta1APIVersionDiscoveryResources = Nothing
+  , v2beta1APIVersionDiscoveryFreshness = Nothing
   }
 
 -- ** VersionInfo

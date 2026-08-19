@@ -23,3 +23,4 @@ nix run .#set-stack-version 1.32 stack.yaml && stack build
 nix run .#set-stack-version 1.33 stack.yaml && stack build
 nix run .#set-stack-version 1.34 stack.yaml && stack build
 nix run .#set-stack-version 1.35 stack.yaml && stack build
+nix run .#set-stack-version 1.36 stack.yaml && stack build

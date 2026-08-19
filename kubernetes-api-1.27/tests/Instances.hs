@@ -1806,6 +1806,16 @@ genV1GroupVersionForDiscovery n =
     <$> arbitrary -- v1GroupVersionForDiscoveryGroupVersion :: Text
     <*> arbitrary -- v1GroupVersionForDiscoveryVersion :: Text
   
+instance Arbitrary V1GroupVersionKind where
+  arbitrary = sized genV1GroupVersionKind
+
+genV1GroupVersionKind :: Int -> Gen V1GroupVersionKind
+genV1GroupVersionKind n =
+  V1GroupVersionKind
+    <$> arbitraryReducedMaybe n -- v1GroupVersionKindGroup :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v1GroupVersionKindVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v1GroupVersionKindKind :: Maybe Text
+  
 instance Arbitrary V1HTTPGetAction where
   arbitrary = sized genV1HTTPGetAction
 
@@ -5859,6 +5869,64 @@ genV1beta3UserSubject n =
   V1beta3UserSubject
     <$> arbitrary -- v1beta3UserSubjectName :: Text
   
+instance Arbitrary V2APIGroupDiscovery where
+  arbitrary = sized genV2APIGroupDiscovery
+
+genV2APIGroupDiscovery :: Int -> Gen V2APIGroupDiscovery
+genV2APIGroupDiscovery n =
+  V2APIGroupDiscovery
+    <$> arbitraryReducedMaybe n -- v2APIGroupDiscoveryApiVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2APIGroupDiscoveryKind :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2APIGroupDiscoveryMetadata :: Maybe V1ObjectMeta
+    <*> arbitraryReducedMaybe n -- v2APIGroupDiscoveryVersions :: Maybe [V2APIVersionDiscovery]
+  
+instance Arbitrary V2APIGroupDiscoveryList where
+  arbitrary = sized genV2APIGroupDiscoveryList
+
+genV2APIGroupDiscoveryList :: Int -> Gen V2APIGroupDiscoveryList
+genV2APIGroupDiscoveryList n =
+  V2APIGroupDiscoveryList
+    <$> arbitraryReducedMaybe n -- v2APIGroupDiscoveryListApiVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2APIGroupDiscoveryListKind :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2APIGroupDiscoveryListMetadata :: Maybe V1ListMeta
+    <*> arbitraryReduced n -- v2APIGroupDiscoveryListItems :: [V2APIGroupDiscovery]
+  
+instance Arbitrary V2APIResourceDiscovery where
+  arbitrary = sized genV2APIResourceDiscovery
+
+genV2APIResourceDiscovery :: Int -> Gen V2APIResourceDiscovery
+genV2APIResourceDiscovery n =
+  V2APIResourceDiscovery
+    <$> arbitrary -- v2APIResourceDiscoveryResource :: Text
+    <*> arbitraryReducedMaybe n -- v2APIResourceDiscoveryResponseKind :: Maybe V1GroupVersionKind
+    <*> arbitrary -- v2APIResourceDiscoveryScope :: Text
+    <*> arbitrary -- v2APIResourceDiscoverySingularResource :: Text
+    <*> arbitrary -- v2APIResourceDiscoveryVerbs :: [Text]
+    <*> arbitraryReducedMaybe n -- v2APIResourceDiscoveryShortNames :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- v2APIResourceDiscoveryCategories :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- v2APIResourceDiscoverySubresources :: Maybe [V2APISubresourceDiscovery]
+  
+instance Arbitrary V2APISubresourceDiscovery where
+  arbitrary = sized genV2APISubresourceDiscovery
+
+genV2APISubresourceDiscovery :: Int -> Gen V2APISubresourceDiscovery
+genV2APISubresourceDiscovery n =
+  V2APISubresourceDiscovery
+    <$> arbitrary -- v2APISubresourceDiscoverySubresource :: Text
+    <*> arbitraryReducedMaybe n -- v2APISubresourceDiscoveryResponseKind :: Maybe V1GroupVersionKind
+    <*> arbitraryReducedMaybe n -- v2APISubresourceDiscoveryAcceptedTypes :: Maybe [V1GroupVersionKind]
+    <*> arbitrary -- v2APISubresourceDiscoveryVerbs :: [Text]
+  
+instance Arbitrary V2APIVersionDiscovery where
+  arbitrary = sized genV2APIVersionDiscovery
+
+genV2APIVersionDiscovery :: Int -> Gen V2APIVersionDiscovery
+genV2APIVersionDiscovery n =
+  V2APIVersionDiscovery
+    <$> arbitrary -- v2APIVersionDiscoveryVersion :: Text
+    <*> arbitraryReducedMaybe n -- v2APIVersionDiscoveryResources :: Maybe [V2APIResourceDiscovery]
+    <*> arbitraryReducedMaybe n -- v2APIVersionDiscoveryFreshness :: Maybe Text
+  
 instance Arbitrary V2ContainerResourceMetricSource where
   arbitrary = sized genV2ContainerResourceMetricSource
 
@@ -6107,6 +6175,64 @@ genV2ResourceMetricStatus n =
   V2ResourceMetricStatus
     <$> arbitraryReduced n -- v2ResourceMetricStatusCurrent :: V2MetricValueStatus
     <*> arbitrary -- v2ResourceMetricStatusName :: Text
+  
+instance Arbitrary V2beta1APIGroupDiscovery where
+  arbitrary = sized genV2beta1APIGroupDiscovery
+
+genV2beta1APIGroupDiscovery :: Int -> Gen V2beta1APIGroupDiscovery
+genV2beta1APIGroupDiscovery n =
+  V2beta1APIGroupDiscovery
+    <$> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryApiVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryKind :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryMetadata :: Maybe V1ObjectMeta
+    <*> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryVersions :: Maybe [V2beta1APIVersionDiscovery]
+  
+instance Arbitrary V2beta1APIGroupDiscoveryList where
+  arbitrary = sized genV2beta1APIGroupDiscoveryList
+
+genV2beta1APIGroupDiscoveryList :: Int -> Gen V2beta1APIGroupDiscoveryList
+genV2beta1APIGroupDiscoveryList n =
+  V2beta1APIGroupDiscoveryList
+    <$> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryListApiVersion :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryListKind :: Maybe Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIGroupDiscoveryListMetadata :: Maybe V1ListMeta
+    <*> arbitraryReduced n -- v2beta1APIGroupDiscoveryListItems :: [V2beta1APIGroupDiscovery]
+  
+instance Arbitrary V2beta1APIResourceDiscovery where
+  arbitrary = sized genV2beta1APIResourceDiscovery
+
+genV2beta1APIResourceDiscovery :: Int -> Gen V2beta1APIResourceDiscovery
+genV2beta1APIResourceDiscovery n =
+  V2beta1APIResourceDiscovery
+    <$> arbitrary -- v2beta1APIResourceDiscoveryResource :: Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIResourceDiscoveryResponseKind :: Maybe V1GroupVersionKind
+    <*> arbitrary -- v2beta1APIResourceDiscoveryScope :: Text
+    <*> arbitrary -- v2beta1APIResourceDiscoverySingularResource :: Text
+    <*> arbitrary -- v2beta1APIResourceDiscoveryVerbs :: [Text]
+    <*> arbitraryReducedMaybe n -- v2beta1APIResourceDiscoveryShortNames :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- v2beta1APIResourceDiscoveryCategories :: Maybe [Text]
+    <*> arbitraryReducedMaybe n -- v2beta1APIResourceDiscoverySubresources :: Maybe [V2beta1APISubresourceDiscovery]
+  
+instance Arbitrary V2beta1APISubresourceDiscovery where
+  arbitrary = sized genV2beta1APISubresourceDiscovery
+
+genV2beta1APISubresourceDiscovery :: Int -> Gen V2beta1APISubresourceDiscovery
+genV2beta1APISubresourceDiscovery n =
+  V2beta1APISubresourceDiscovery
+    <$> arbitrary -- v2beta1APISubresourceDiscoverySubresource :: Text
+    <*> arbitraryReducedMaybe n -- v2beta1APISubresourceDiscoveryResponseKind :: Maybe V1GroupVersionKind
+    <*> arbitrary -- v2beta1APISubresourceDiscoveryVerbs :: [Text]
+    <*> arbitraryReducedMaybe n -- v2beta1APISubresourceDiscoveryAcceptedTypes :: Maybe [V1GroupVersionKind]
+  
+instance Arbitrary V2beta1APIVersionDiscovery where
+  arbitrary = sized genV2beta1APIVersionDiscovery
+
+genV2beta1APIVersionDiscovery :: Int -> Gen V2beta1APIVersionDiscovery
+genV2beta1APIVersionDiscovery n =
+  V2beta1APIVersionDiscovery
+    <$> arbitrary -- v2beta1APIVersionDiscoveryVersion :: Text
+    <*> arbitraryReducedMaybe n -- v2beta1APIVersionDiscoveryResources :: Maybe [V2beta1APIResourceDiscovery]
+    <*> arbitraryReducedMaybe n -- v2beta1APIVersionDiscoveryFreshness :: Maybe Text
   
 instance Arbitrary VersionInfo where
   arbitrary = sized genVersionInfo

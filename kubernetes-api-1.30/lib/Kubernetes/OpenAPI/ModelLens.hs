@@ -4225,6 +4225,25 @@ v1GroupVersionForDiscoveryVersionL f V1GroupVersionForDiscovery{..} = (\v1GroupV
 
 
 
+-- * V1GroupVersionKind
+
+-- | 'v1GroupVersionKindGroup' Lens
+v1GroupVersionKindGroupL :: Lens_' V1GroupVersionKind (Maybe Text)
+v1GroupVersionKindGroupL f V1GroupVersionKind{..} = (\v1GroupVersionKindGroup -> V1GroupVersionKind { v1GroupVersionKindGroup, ..} ) <$> f v1GroupVersionKindGroup
+{-# INLINE v1GroupVersionKindGroupL #-}
+
+-- | 'v1GroupVersionKindVersion' Lens
+v1GroupVersionKindVersionL :: Lens_' V1GroupVersionKind (Maybe Text)
+v1GroupVersionKindVersionL f V1GroupVersionKind{..} = (\v1GroupVersionKindVersion -> V1GroupVersionKind { v1GroupVersionKindVersion, ..} ) <$> f v1GroupVersionKindVersion
+{-# INLINE v1GroupVersionKindVersionL #-}
+
+-- | 'v1GroupVersionKindKind' Lens
+v1GroupVersionKindKindL :: Lens_' V1GroupVersionKind (Maybe Text)
+v1GroupVersionKindKindL f V1GroupVersionKind{..} = (\v1GroupVersionKindKind -> V1GroupVersionKind { v1GroupVersionKindKind, ..} ) <$> f v1GroupVersionKindKind
+{-# INLINE v1GroupVersionKindKindL #-}
+
+
+
 -- * V1HTTPGetAction
 
 -- | 'v1HTTPGetActionHost' Lens
@@ -14713,6 +14732,141 @@ v1beta3UserSubjectNameL f V1beta3UserSubject{..} = (\v1beta3UserSubjectName -> V
 
 
 
+-- * V2APIGroupDiscovery
+
+-- | 'v2APIGroupDiscoveryApiVersion' Lens
+v2APIGroupDiscoveryApiVersionL :: Lens_' V2APIGroupDiscovery (Maybe Text)
+v2APIGroupDiscoveryApiVersionL f V2APIGroupDiscovery{..} = (\v2APIGroupDiscoveryApiVersion -> V2APIGroupDiscovery { v2APIGroupDiscoveryApiVersion, ..} ) <$> f v2APIGroupDiscoveryApiVersion
+{-# INLINE v2APIGroupDiscoveryApiVersionL #-}
+
+-- | 'v2APIGroupDiscoveryKind' Lens
+v2APIGroupDiscoveryKindL :: Lens_' V2APIGroupDiscovery (Maybe Text)
+v2APIGroupDiscoveryKindL f V2APIGroupDiscovery{..} = (\v2APIGroupDiscoveryKind -> V2APIGroupDiscovery { v2APIGroupDiscoveryKind, ..} ) <$> f v2APIGroupDiscoveryKind
+{-# INLINE v2APIGroupDiscoveryKindL #-}
+
+-- | 'v2APIGroupDiscoveryMetadata' Lens
+v2APIGroupDiscoveryMetadataL :: Lens_' V2APIGroupDiscovery (Maybe V1ObjectMeta)
+v2APIGroupDiscoveryMetadataL f V2APIGroupDiscovery{..} = (\v2APIGroupDiscoveryMetadata -> V2APIGroupDiscovery { v2APIGroupDiscoveryMetadata, ..} ) <$> f v2APIGroupDiscoveryMetadata
+{-# INLINE v2APIGroupDiscoveryMetadataL #-}
+
+-- | 'v2APIGroupDiscoveryVersions' Lens
+v2APIGroupDiscoveryVersionsL :: Lens_' V2APIGroupDiscovery (Maybe [V2APIVersionDiscovery])
+v2APIGroupDiscoveryVersionsL f V2APIGroupDiscovery{..} = (\v2APIGroupDiscoveryVersions -> V2APIGroupDiscovery { v2APIGroupDiscoveryVersions, ..} ) <$> f v2APIGroupDiscoveryVersions
+{-# INLINE v2APIGroupDiscoveryVersionsL #-}
+
+
+
+-- * V2APIGroupDiscoveryList
+
+-- | 'v2APIGroupDiscoveryListApiVersion' Lens
+v2APIGroupDiscoveryListApiVersionL :: Lens_' V2APIGroupDiscoveryList (Maybe Text)
+v2APIGroupDiscoveryListApiVersionL f V2APIGroupDiscoveryList{..} = (\v2APIGroupDiscoveryListApiVersion -> V2APIGroupDiscoveryList { v2APIGroupDiscoveryListApiVersion, ..} ) <$> f v2APIGroupDiscoveryListApiVersion
+{-# INLINE v2APIGroupDiscoveryListApiVersionL #-}
+
+-- | 'v2APIGroupDiscoveryListKind' Lens
+v2APIGroupDiscoveryListKindL :: Lens_' V2APIGroupDiscoveryList (Maybe Text)
+v2APIGroupDiscoveryListKindL f V2APIGroupDiscoveryList{..} = (\v2APIGroupDiscoveryListKind -> V2APIGroupDiscoveryList { v2APIGroupDiscoveryListKind, ..} ) <$> f v2APIGroupDiscoveryListKind
+{-# INLINE v2APIGroupDiscoveryListKindL #-}
+
+-- | 'v2APIGroupDiscoveryListMetadata' Lens
+v2APIGroupDiscoveryListMetadataL :: Lens_' V2APIGroupDiscoveryList (Maybe V1ListMeta)
+v2APIGroupDiscoveryListMetadataL f V2APIGroupDiscoveryList{..} = (\v2APIGroupDiscoveryListMetadata -> V2APIGroupDiscoveryList { v2APIGroupDiscoveryListMetadata, ..} ) <$> f v2APIGroupDiscoveryListMetadata
+{-# INLINE v2APIGroupDiscoveryListMetadataL #-}
+
+-- | 'v2APIGroupDiscoveryListItems' Lens
+v2APIGroupDiscoveryListItemsL :: Lens_' V2APIGroupDiscoveryList ([V2APIGroupDiscovery])
+v2APIGroupDiscoveryListItemsL f V2APIGroupDiscoveryList{..} = (\v2APIGroupDiscoveryListItems -> V2APIGroupDiscoveryList { v2APIGroupDiscoveryListItems, ..} ) <$> f v2APIGroupDiscoveryListItems
+{-# INLINE v2APIGroupDiscoveryListItemsL #-}
+
+
+
+-- * V2APIResourceDiscovery
+
+-- | 'v2APIResourceDiscoveryResource' Lens
+v2APIResourceDiscoveryResourceL :: Lens_' V2APIResourceDiscovery (Text)
+v2APIResourceDiscoveryResourceL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryResource -> V2APIResourceDiscovery { v2APIResourceDiscoveryResource, ..} ) <$> f v2APIResourceDiscoveryResource
+{-# INLINE v2APIResourceDiscoveryResourceL #-}
+
+-- | 'v2APIResourceDiscoveryResponseKind' Lens
+v2APIResourceDiscoveryResponseKindL :: Lens_' V2APIResourceDiscovery (Maybe V1GroupVersionKind)
+v2APIResourceDiscoveryResponseKindL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryResponseKind -> V2APIResourceDiscovery { v2APIResourceDiscoveryResponseKind, ..} ) <$> f v2APIResourceDiscoveryResponseKind
+{-# INLINE v2APIResourceDiscoveryResponseKindL #-}
+
+-- | 'v2APIResourceDiscoveryScope' Lens
+v2APIResourceDiscoveryScopeL :: Lens_' V2APIResourceDiscovery (Text)
+v2APIResourceDiscoveryScopeL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryScope -> V2APIResourceDiscovery { v2APIResourceDiscoveryScope, ..} ) <$> f v2APIResourceDiscoveryScope
+{-# INLINE v2APIResourceDiscoveryScopeL #-}
+
+-- | 'v2APIResourceDiscoverySingularResource' Lens
+v2APIResourceDiscoverySingularResourceL :: Lens_' V2APIResourceDiscovery (Text)
+v2APIResourceDiscoverySingularResourceL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoverySingularResource -> V2APIResourceDiscovery { v2APIResourceDiscoverySingularResource, ..} ) <$> f v2APIResourceDiscoverySingularResource
+{-# INLINE v2APIResourceDiscoverySingularResourceL #-}
+
+-- | 'v2APIResourceDiscoveryVerbs' Lens
+v2APIResourceDiscoveryVerbsL :: Lens_' V2APIResourceDiscovery ([Text])
+v2APIResourceDiscoveryVerbsL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryVerbs -> V2APIResourceDiscovery { v2APIResourceDiscoveryVerbs, ..} ) <$> f v2APIResourceDiscoveryVerbs
+{-# INLINE v2APIResourceDiscoveryVerbsL #-}
+
+-- | 'v2APIResourceDiscoveryShortNames' Lens
+v2APIResourceDiscoveryShortNamesL :: Lens_' V2APIResourceDiscovery (Maybe [Text])
+v2APIResourceDiscoveryShortNamesL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryShortNames -> V2APIResourceDiscovery { v2APIResourceDiscoveryShortNames, ..} ) <$> f v2APIResourceDiscoveryShortNames
+{-# INLINE v2APIResourceDiscoveryShortNamesL #-}
+
+-- | 'v2APIResourceDiscoveryCategories' Lens
+v2APIResourceDiscoveryCategoriesL :: Lens_' V2APIResourceDiscovery (Maybe [Text])
+v2APIResourceDiscoveryCategoriesL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoveryCategories -> V2APIResourceDiscovery { v2APIResourceDiscoveryCategories, ..} ) <$> f v2APIResourceDiscoveryCategories
+{-# INLINE v2APIResourceDiscoveryCategoriesL #-}
+
+-- | 'v2APIResourceDiscoverySubresources' Lens
+v2APIResourceDiscoverySubresourcesL :: Lens_' V2APIResourceDiscovery (Maybe [V2APISubresourceDiscovery])
+v2APIResourceDiscoverySubresourcesL f V2APIResourceDiscovery{..} = (\v2APIResourceDiscoverySubresources -> V2APIResourceDiscovery { v2APIResourceDiscoverySubresources, ..} ) <$> f v2APIResourceDiscoverySubresources
+{-# INLINE v2APIResourceDiscoverySubresourcesL #-}
+
+
+
+-- * V2APISubresourceDiscovery
+
+-- | 'v2APISubresourceDiscoverySubresource' Lens
+v2APISubresourceDiscoverySubresourceL :: Lens_' V2APISubresourceDiscovery (Text)
+v2APISubresourceDiscoverySubresourceL f V2APISubresourceDiscovery{..} = (\v2APISubresourceDiscoverySubresource -> V2APISubresourceDiscovery { v2APISubresourceDiscoverySubresource, ..} ) <$> f v2APISubresourceDiscoverySubresource
+{-# INLINE v2APISubresourceDiscoverySubresourceL #-}
+
+-- | 'v2APISubresourceDiscoveryResponseKind' Lens
+v2APISubresourceDiscoveryResponseKindL :: Lens_' V2APISubresourceDiscovery (Maybe V1GroupVersionKind)
+v2APISubresourceDiscoveryResponseKindL f V2APISubresourceDiscovery{..} = (\v2APISubresourceDiscoveryResponseKind -> V2APISubresourceDiscovery { v2APISubresourceDiscoveryResponseKind, ..} ) <$> f v2APISubresourceDiscoveryResponseKind
+{-# INLINE v2APISubresourceDiscoveryResponseKindL #-}
+
+-- | 'v2APISubresourceDiscoveryAcceptedTypes' Lens
+v2APISubresourceDiscoveryAcceptedTypesL :: Lens_' V2APISubresourceDiscovery (Maybe [V1GroupVersionKind])
+v2APISubresourceDiscoveryAcceptedTypesL f V2APISubresourceDiscovery{..} = (\v2APISubresourceDiscoveryAcceptedTypes -> V2APISubresourceDiscovery { v2APISubresourceDiscoveryAcceptedTypes, ..} ) <$> f v2APISubresourceDiscoveryAcceptedTypes
+{-# INLINE v2APISubresourceDiscoveryAcceptedTypesL #-}
+
+-- | 'v2APISubresourceDiscoveryVerbs' Lens
+v2APISubresourceDiscoveryVerbsL :: Lens_' V2APISubresourceDiscovery ([Text])
+v2APISubresourceDiscoveryVerbsL f V2APISubresourceDiscovery{..} = (\v2APISubresourceDiscoveryVerbs -> V2APISubresourceDiscovery { v2APISubresourceDiscoveryVerbs, ..} ) <$> f v2APISubresourceDiscoveryVerbs
+{-# INLINE v2APISubresourceDiscoveryVerbsL #-}
+
+
+
+-- * V2APIVersionDiscovery
+
+-- | 'v2APIVersionDiscoveryVersion' Lens
+v2APIVersionDiscoveryVersionL :: Lens_' V2APIVersionDiscovery (Text)
+v2APIVersionDiscoveryVersionL f V2APIVersionDiscovery{..} = (\v2APIVersionDiscoveryVersion -> V2APIVersionDiscovery { v2APIVersionDiscoveryVersion, ..} ) <$> f v2APIVersionDiscoveryVersion
+{-# INLINE v2APIVersionDiscoveryVersionL #-}
+
+-- | 'v2APIVersionDiscoveryResources' Lens
+v2APIVersionDiscoveryResourcesL :: Lens_' V2APIVersionDiscovery (Maybe [V2APIResourceDiscovery])
+v2APIVersionDiscoveryResourcesL f V2APIVersionDiscovery{..} = (\v2APIVersionDiscoveryResources -> V2APIVersionDiscovery { v2APIVersionDiscoveryResources, ..} ) <$> f v2APIVersionDiscoveryResources
+{-# INLINE v2APIVersionDiscoveryResourcesL #-}
+
+-- | 'v2APIVersionDiscoveryFreshness' Lens
+v2APIVersionDiscoveryFreshnessL :: Lens_' V2APIVersionDiscovery (Maybe Text)
+v2APIVersionDiscoveryFreshnessL f V2APIVersionDiscovery{..} = (\v2APIVersionDiscoveryFreshness -> V2APIVersionDiscovery { v2APIVersionDiscoveryFreshness, ..} ) <$> f v2APIVersionDiscoveryFreshness
+{-# INLINE v2APIVersionDiscoveryFreshnessL #-}
+
+
+
 -- * V2ContainerResourceMetricSource
 
 -- | 'v2ContainerResourceMetricSourceContainer' Lens
@@ -15211,6 +15365,141 @@ v2ResourceMetricStatusCurrentL f V2ResourceMetricStatus{..} = (\v2ResourceMetric
 v2ResourceMetricStatusNameL :: Lens_' V2ResourceMetricStatus (Text)
 v2ResourceMetricStatusNameL f V2ResourceMetricStatus{..} = (\v2ResourceMetricStatusName -> V2ResourceMetricStatus { v2ResourceMetricStatusName, ..} ) <$> f v2ResourceMetricStatusName
 {-# INLINE v2ResourceMetricStatusNameL #-}
+
+
+
+-- * V2beta1APIGroupDiscovery
+
+-- | 'v2beta1APIGroupDiscoveryApiVersion' Lens
+v2beta1APIGroupDiscoveryApiVersionL :: Lens_' V2beta1APIGroupDiscovery (Maybe Text)
+v2beta1APIGroupDiscoveryApiVersionL f V2beta1APIGroupDiscovery{..} = (\v2beta1APIGroupDiscoveryApiVersion -> V2beta1APIGroupDiscovery { v2beta1APIGroupDiscoveryApiVersion, ..} ) <$> f v2beta1APIGroupDiscoveryApiVersion
+{-# INLINE v2beta1APIGroupDiscoveryApiVersionL #-}
+
+-- | 'v2beta1APIGroupDiscoveryKind' Lens
+v2beta1APIGroupDiscoveryKindL :: Lens_' V2beta1APIGroupDiscovery (Maybe Text)
+v2beta1APIGroupDiscoveryKindL f V2beta1APIGroupDiscovery{..} = (\v2beta1APIGroupDiscoveryKind -> V2beta1APIGroupDiscovery { v2beta1APIGroupDiscoveryKind, ..} ) <$> f v2beta1APIGroupDiscoveryKind
+{-# INLINE v2beta1APIGroupDiscoveryKindL #-}
+
+-- | 'v2beta1APIGroupDiscoveryMetadata' Lens
+v2beta1APIGroupDiscoveryMetadataL :: Lens_' V2beta1APIGroupDiscovery (Maybe V1ObjectMeta)
+v2beta1APIGroupDiscoveryMetadataL f V2beta1APIGroupDiscovery{..} = (\v2beta1APIGroupDiscoveryMetadata -> V2beta1APIGroupDiscovery { v2beta1APIGroupDiscoveryMetadata, ..} ) <$> f v2beta1APIGroupDiscoveryMetadata
+{-# INLINE v2beta1APIGroupDiscoveryMetadataL #-}
+
+-- | 'v2beta1APIGroupDiscoveryVersions' Lens
+v2beta1APIGroupDiscoveryVersionsL :: Lens_' V2beta1APIGroupDiscovery (Maybe [V2beta1APIVersionDiscovery])
+v2beta1APIGroupDiscoveryVersionsL f V2beta1APIGroupDiscovery{..} = (\v2beta1APIGroupDiscoveryVersions -> V2beta1APIGroupDiscovery { v2beta1APIGroupDiscoveryVersions, ..} ) <$> f v2beta1APIGroupDiscoveryVersions
+{-# INLINE v2beta1APIGroupDiscoveryVersionsL #-}
+
+
+
+-- * V2beta1APIGroupDiscoveryList
+
+-- | 'v2beta1APIGroupDiscoveryListApiVersion' Lens
+v2beta1APIGroupDiscoveryListApiVersionL :: Lens_' V2beta1APIGroupDiscoveryList (Maybe Text)
+v2beta1APIGroupDiscoveryListApiVersionL f V2beta1APIGroupDiscoveryList{..} = (\v2beta1APIGroupDiscoveryListApiVersion -> V2beta1APIGroupDiscoveryList { v2beta1APIGroupDiscoveryListApiVersion, ..} ) <$> f v2beta1APIGroupDiscoveryListApiVersion
+{-# INLINE v2beta1APIGroupDiscoveryListApiVersionL #-}
+
+-- | 'v2beta1APIGroupDiscoveryListKind' Lens
+v2beta1APIGroupDiscoveryListKindL :: Lens_' V2beta1APIGroupDiscoveryList (Maybe Text)
+v2beta1APIGroupDiscoveryListKindL f V2beta1APIGroupDiscoveryList{..} = (\v2beta1APIGroupDiscoveryListKind -> V2beta1APIGroupDiscoveryList { v2beta1APIGroupDiscoveryListKind, ..} ) <$> f v2beta1APIGroupDiscoveryListKind
+{-# INLINE v2beta1APIGroupDiscoveryListKindL #-}
+
+-- | 'v2beta1APIGroupDiscoveryListMetadata' Lens
+v2beta1APIGroupDiscoveryListMetadataL :: Lens_' V2beta1APIGroupDiscoveryList (Maybe V1ListMeta)
+v2beta1APIGroupDiscoveryListMetadataL f V2beta1APIGroupDiscoveryList{..} = (\v2beta1APIGroupDiscoveryListMetadata -> V2beta1APIGroupDiscoveryList { v2beta1APIGroupDiscoveryListMetadata, ..} ) <$> f v2beta1APIGroupDiscoveryListMetadata
+{-# INLINE v2beta1APIGroupDiscoveryListMetadataL #-}
+
+-- | 'v2beta1APIGroupDiscoveryListItems' Lens
+v2beta1APIGroupDiscoveryListItemsL :: Lens_' V2beta1APIGroupDiscoveryList ([V2beta1APIGroupDiscovery])
+v2beta1APIGroupDiscoveryListItemsL f V2beta1APIGroupDiscoveryList{..} = (\v2beta1APIGroupDiscoveryListItems -> V2beta1APIGroupDiscoveryList { v2beta1APIGroupDiscoveryListItems, ..} ) <$> f v2beta1APIGroupDiscoveryListItems
+{-# INLINE v2beta1APIGroupDiscoveryListItemsL #-}
+
+
+
+-- * V2beta1APIResourceDiscovery
+
+-- | 'v2beta1APIResourceDiscoveryResource' Lens
+v2beta1APIResourceDiscoveryResourceL :: Lens_' V2beta1APIResourceDiscovery (Text)
+v2beta1APIResourceDiscoveryResourceL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryResource -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryResource, ..} ) <$> f v2beta1APIResourceDiscoveryResource
+{-# INLINE v2beta1APIResourceDiscoveryResourceL #-}
+
+-- | 'v2beta1APIResourceDiscoveryResponseKind' Lens
+v2beta1APIResourceDiscoveryResponseKindL :: Lens_' V2beta1APIResourceDiscovery (Maybe V1GroupVersionKind)
+v2beta1APIResourceDiscoveryResponseKindL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryResponseKind -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryResponseKind, ..} ) <$> f v2beta1APIResourceDiscoveryResponseKind
+{-# INLINE v2beta1APIResourceDiscoveryResponseKindL #-}
+
+-- | 'v2beta1APIResourceDiscoveryScope' Lens
+v2beta1APIResourceDiscoveryScopeL :: Lens_' V2beta1APIResourceDiscovery (Text)
+v2beta1APIResourceDiscoveryScopeL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryScope -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryScope, ..} ) <$> f v2beta1APIResourceDiscoveryScope
+{-# INLINE v2beta1APIResourceDiscoveryScopeL #-}
+
+-- | 'v2beta1APIResourceDiscoverySingularResource' Lens
+v2beta1APIResourceDiscoverySingularResourceL :: Lens_' V2beta1APIResourceDiscovery (Text)
+v2beta1APIResourceDiscoverySingularResourceL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoverySingularResource -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoverySingularResource, ..} ) <$> f v2beta1APIResourceDiscoverySingularResource
+{-# INLINE v2beta1APIResourceDiscoverySingularResourceL #-}
+
+-- | 'v2beta1APIResourceDiscoveryVerbs' Lens
+v2beta1APIResourceDiscoveryVerbsL :: Lens_' V2beta1APIResourceDiscovery ([Text])
+v2beta1APIResourceDiscoveryVerbsL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryVerbs -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryVerbs, ..} ) <$> f v2beta1APIResourceDiscoveryVerbs
+{-# INLINE v2beta1APIResourceDiscoveryVerbsL #-}
+
+-- | 'v2beta1APIResourceDiscoveryShortNames' Lens
+v2beta1APIResourceDiscoveryShortNamesL :: Lens_' V2beta1APIResourceDiscovery (Maybe [Text])
+v2beta1APIResourceDiscoveryShortNamesL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryShortNames -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryShortNames, ..} ) <$> f v2beta1APIResourceDiscoveryShortNames
+{-# INLINE v2beta1APIResourceDiscoveryShortNamesL #-}
+
+-- | 'v2beta1APIResourceDiscoveryCategories' Lens
+v2beta1APIResourceDiscoveryCategoriesL :: Lens_' V2beta1APIResourceDiscovery (Maybe [Text])
+v2beta1APIResourceDiscoveryCategoriesL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoveryCategories -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoveryCategories, ..} ) <$> f v2beta1APIResourceDiscoveryCategories
+{-# INLINE v2beta1APIResourceDiscoveryCategoriesL #-}
+
+-- | 'v2beta1APIResourceDiscoverySubresources' Lens
+v2beta1APIResourceDiscoverySubresourcesL :: Lens_' V2beta1APIResourceDiscovery (Maybe [V2beta1APISubresourceDiscovery])
+v2beta1APIResourceDiscoverySubresourcesL f V2beta1APIResourceDiscovery{..} = (\v2beta1APIResourceDiscoverySubresources -> V2beta1APIResourceDiscovery { v2beta1APIResourceDiscoverySubresources, ..} ) <$> f v2beta1APIResourceDiscoverySubresources
+{-# INLINE v2beta1APIResourceDiscoverySubresourcesL #-}
+
+
+
+-- * V2beta1APISubresourceDiscovery
+
+-- | 'v2beta1APISubresourceDiscoverySubresource' Lens
+v2beta1APISubresourceDiscoverySubresourceL :: Lens_' V2beta1APISubresourceDiscovery (Text)
+v2beta1APISubresourceDiscoverySubresourceL f V2beta1APISubresourceDiscovery{..} = (\v2beta1APISubresourceDiscoverySubresource -> V2beta1APISubresourceDiscovery { v2beta1APISubresourceDiscoverySubresource, ..} ) <$> f v2beta1APISubresourceDiscoverySubresource
+{-# INLINE v2beta1APISubresourceDiscoverySubresourceL #-}
+
+-- | 'v2beta1APISubresourceDiscoveryResponseKind' Lens
+v2beta1APISubresourceDiscoveryResponseKindL :: Lens_' V2beta1APISubresourceDiscovery (Maybe V1GroupVersionKind)
+v2beta1APISubresourceDiscoveryResponseKindL f V2beta1APISubresourceDiscovery{..} = (\v2beta1APISubresourceDiscoveryResponseKind -> V2beta1APISubresourceDiscovery { v2beta1APISubresourceDiscoveryResponseKind, ..} ) <$> f v2beta1APISubresourceDiscoveryResponseKind
+{-# INLINE v2beta1APISubresourceDiscoveryResponseKindL #-}
+
+-- | 'v2beta1APISubresourceDiscoveryVerbs' Lens
+v2beta1APISubresourceDiscoveryVerbsL :: Lens_' V2beta1APISubresourceDiscovery ([Text])
+v2beta1APISubresourceDiscoveryVerbsL f V2beta1APISubresourceDiscovery{..} = (\v2beta1APISubresourceDiscoveryVerbs -> V2beta1APISubresourceDiscovery { v2beta1APISubresourceDiscoveryVerbs, ..} ) <$> f v2beta1APISubresourceDiscoveryVerbs
+{-# INLINE v2beta1APISubresourceDiscoveryVerbsL #-}
+
+-- | 'v2beta1APISubresourceDiscoveryAcceptedTypes' Lens
+v2beta1APISubresourceDiscoveryAcceptedTypesL :: Lens_' V2beta1APISubresourceDiscovery (Maybe [V1GroupVersionKind])
+v2beta1APISubresourceDiscoveryAcceptedTypesL f V2beta1APISubresourceDiscovery{..} = (\v2beta1APISubresourceDiscoveryAcceptedTypes -> V2beta1APISubresourceDiscovery { v2beta1APISubresourceDiscoveryAcceptedTypes, ..} ) <$> f v2beta1APISubresourceDiscoveryAcceptedTypes
+{-# INLINE v2beta1APISubresourceDiscoveryAcceptedTypesL #-}
+
+
+
+-- * V2beta1APIVersionDiscovery
+
+-- | 'v2beta1APIVersionDiscoveryVersion' Lens
+v2beta1APIVersionDiscoveryVersionL :: Lens_' V2beta1APIVersionDiscovery (Text)
+v2beta1APIVersionDiscoveryVersionL f V2beta1APIVersionDiscovery{..} = (\v2beta1APIVersionDiscoveryVersion -> V2beta1APIVersionDiscovery { v2beta1APIVersionDiscoveryVersion, ..} ) <$> f v2beta1APIVersionDiscoveryVersion
+{-# INLINE v2beta1APIVersionDiscoveryVersionL #-}
+
+-- | 'v2beta1APIVersionDiscoveryResources' Lens
+v2beta1APIVersionDiscoveryResourcesL :: Lens_' V2beta1APIVersionDiscovery (Maybe [V2beta1APIResourceDiscovery])
+v2beta1APIVersionDiscoveryResourcesL f V2beta1APIVersionDiscovery{..} = (\v2beta1APIVersionDiscoveryResources -> V2beta1APIVersionDiscovery { v2beta1APIVersionDiscoveryResources, ..} ) <$> f v2beta1APIVersionDiscoveryResources
+{-# INLINE v2beta1APIVersionDiscoveryResourcesL #-}
+
+-- | 'v2beta1APIVersionDiscoveryFreshness' Lens
+v2beta1APIVersionDiscoveryFreshnessL :: Lens_' V2beta1APIVersionDiscovery (Maybe Text)
+v2beta1APIVersionDiscoveryFreshnessL f V2beta1APIVersionDiscovery{..} = (\v2beta1APIVersionDiscoveryFreshness -> V2beta1APIVersionDiscovery { v2beta1APIVersionDiscoveryFreshness, ..} ) <$> f v2beta1APIVersionDiscoveryFreshness
+{-# INLINE v2beta1APIVersionDiscoveryFreshnessL #-}
 
 
 

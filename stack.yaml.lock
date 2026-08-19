@@ -15,9 +15,16 @@ packages:
   original:
     commit: 2d19db09bf13f02f49248f7b21703b2c59e06ecc
     git: https://github.com/krdlab/haskell-oidc-client
+- completed:
+    hackage: hoauth2-2.15.2@sha256:7aa313e9efd4e42c851fb48ae8938128fa9daa86d2b9623fa73dd46f5e7bcedb,3847
+    pantry-tree:
+      sha256: f8da3bfbd93ca582ca3b6accba8ffbc2b10a3a823f6de85c1dbb601ad77fd2b7
+      size: 2379
+  original:
+    hackage: hoauth2-2.15.2
 snapshots:
 - completed:
-    sha256: 32d4130e25c059dbe82764e0029a2d4956d1d9d222f9256b261af308ffd8c4f4
-    size: 710264
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2025/11/25.yaml
-  original: nightly-2025-11-25
+    sha256: bd5076817543a17cf0c7881ecf0dc7e3edb293486b6c6ae4c15cac445f92c418
+    size: 769876
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2026/8/7.yaml
+  original: nightly-2026-08-07

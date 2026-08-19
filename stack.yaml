@@ -1,17 +1,18 @@
-resolver: nightly-2025-11-25
+resolver: nightly-2026-08-07
 
 # This repo contains multiple versions of kubernetes-api, in the
 # kubernetes-api-* directories.
 # You should use exactly one to build against.
 packages:
-- kubernetes-api-1.35
+- kubernetes-api-1.36
 - kubernetes-api-client
 
 extra-deps:
 - git: https://github.com/krdlab/haskell-oidc-client
   commit: 2d19db09bf13f02f49248f7b21703b2c59e06ecc
 
+- hoauth2-2.15.2
+
 nix:
-  pure: false
-  packages:
-  - zlib
+  enable: false
+system-ghc: true

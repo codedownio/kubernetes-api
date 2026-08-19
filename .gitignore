@@ -22,3 +22,4 @@ swagger.json
 swagger.json.unprocessed
 git_push.sh
 openapi.yaml
+.direnv
